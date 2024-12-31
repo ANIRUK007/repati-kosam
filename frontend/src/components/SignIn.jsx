@@ -6,18 +6,32 @@ const SignIn = () => {
     email: '',
     password: ''
   });
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  // Dummy credentials
+  const dummyUser = {
+    email: 'test@example.com',
+    password: 'test123'
+  };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+    setError(''); // Clear error when user types
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    
+    // Check credentials
+    if (formData.email === dummyUser.email && formData.password === dummyUser.password) {
+      navigate('/dashboard');
+    } else {
+      setError('Invalid email or password');
+    }
   };
 
   const styles = {
@@ -72,14 +86,19 @@ const SignIn = () => {
       fontWeight: '500',
       cursor: 'pointer'
     },
-    signupLink: {
+    error: {
+      color: '#dc2626',
+      fontSize: '14px',
       textAlign: 'center',
-      marginTop: '16px'
+      marginBottom: '16px'
     },
-    link: {
-      color: '#4f46e5',
-      textDecoration: 'none',
-      fontSize: '14px'
+    dummyCredentials: {
+      marginTop: '16px',
+      padding: '12px',
+      backgroundColor: '#f3f4f6',
+      borderRadius: '4px',
+      fontSize: '14px',
+      color: '#374151'
     }
   };
 
@@ -87,6 +106,8 @@ const SignIn = () => {
     <div style={styles.container}>
       <div style={styles.formContainer}>
         <h2 style={styles.title}>Sign in to MergeAndEdit</h2>
+
+        {error && <div style={styles.error}>{error}</div>}
         
         <form onSubmit={handleSubmit}>
           <div style={styles.inputGroup}>
@@ -121,12 +142,6 @@ const SignIn = () => {
             Sign in
           </button>
         </form>
-
-        <div style={styles.signupLink}>
-          <Link to="/signup" style={styles.link}>
-            Don't have an account? Sign up
-          </Link>
-        </div>
       </div>
     </div>
   );
