@@ -1,47 +1,109 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const WelcomePage = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate('/signin');
+    navigate('/signup'); // Redirect to Signup Page
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20">
-        <div className="container mx-auto px-6">
-          <h1 className="text-5xl font-bold mb-4">
-            Git-Like Version Control for Video Editing
-          </h1>
-          <p className="text-xl mb-8">
-            Collaborate seamlessly with your team on video projects
-          </p>
-          <button 
-            onClick={handleGetStarted}
-            className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors"
-          >
-            Get Started Free
-          </button>
-        </div>
+    <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb' }}>
+      {/* Top Section */}
+      <div
+        style={{
+          background: 'linear-gradient(to right, #2563eb, #4f46e5)',
+          color: 'white',
+          padding: '5rem 0',
+          textAlign: 'center',
+        }}
+      >
+        <h1 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+          Git-Like Version Control for Video Editing
+        </h1>
+        <p style={{ fontSize: '1.25rem', marginBottom: '2rem' }}>
+          Collaborate seamlessly with your team on video projects
+        </p>
+        <button
+          onClick={handleGetStarted}
+          style={{
+            backgroundColor: 'white',
+            color: '#4f46e5',
+            padding: '0.75rem 2rem',
+            borderRadius: '8px',
+            fontWeight: '600',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            border: 'none',
+            transition: 'background-color 0.2s ease-in-out',
+          }}
+          onMouseOver={(e) => (e.target.style.backgroundColor = '#e0e7ff')}
+          onMouseOut={(e) => (e.target.style.backgroundColor = 'white')}
+        >
+          Get Started Free
+        </button>
       </div>
-      
-      <div className="container mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold text-center mb-12">Why Choose MergeAndEdit?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Feature cards */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-2">Version Control</h3>
-            <p className="text-gray-600">Track changes, manage versions, and never lose your work</p>
+
+      {/* Features Section */}
+      <div style={{ padding: '5rem 2rem', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '2rem' }}>
+          Why Choose MergeAndEdit?
+        </h2>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '2rem',
+          }}
+        >
+          {/* Feature Card 1 */}
+          <div
+            style={{
+              backgroundColor: 'white',
+              padding: '2rem',
+              borderRadius: '8px',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>
+              Version Control
+            </h3>
+            <p style={{ color: '#6b7280' }}>
+              Track changes, manage versions, and never lose your work.
+            </p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-2">Real-Time Collaboration</h3>
-            <p className="text-gray-600">Edit together in real-time with your team members</p>
+          {/* Feature Card 2 */}
+          <div
+            style={{
+              backgroundColor: 'white',
+              padding: '2rem',
+              borderRadius: '8px',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>
+              Real-Time Collaboration
+            </h3>
+            <p style={{ color: '#6b7280' }}>
+              Edit together in real-time with your team members.
+            </p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-2">Smart Merging</h3>
-            <p className="text-gray-600">Resolve conflicts intelligently with our advanced merging system</p>
+          {/* Feature Card 3 */}
+          <div
+            style={{
+              backgroundColor: 'white',
+              padding: '2rem',
+              borderRadius: '8px',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>
+              Smart Merging
+            </h3>
+            <p style={{ color: '#6b7280' }}>
+              Resolve conflicts intelligently with our advanced merging system.
+            </p>
           </div>
         </div>
       </div>
@@ -49,4 +111,4 @@ const WelcomePage = () => {
   );
 };
 
-export default WelcomePage; 
+export default WelcomePage;
