@@ -6,6 +6,7 @@ import WelcomePage from './components/WelcomePage';
 import Dashboard from './components/Dashboard';
 import VideoEditor from './components/VideoEditor';
 import NotFound from './components/NotFound';
+import SignIn from './components/SignIn';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<WelcomePage />} />
+          <Route path="/signin" element={<SignIn />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/editor/:projectId" element={<VideoEditor />} />
           <Route path="*" element={<NotFound />} />
