@@ -5,24 +5,49 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const handleSignIn = () => {
-    navigate('/signin');  // Just use the route path, not the file path
+    navigate('/signin');
+  };
+
+  // Add this function to handle Projects navigation
+  const handleProjects = () => {
+    navigate('/projects');
   };
 
   return (
-    <nav className="bg-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between h-16">
-          <div className="flex">
-            <Link to="/" className="flex items-center">
-              <span className="text-xl font-bold text-indigo-600">MergeAndEdit</span>
+    <nav style={{ backgroundColor: 'white', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', height: '64px', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Link to="/" style={{ textDecoration: 'none', color: '#4f46e5', fontWeight: 'bold', fontSize: '20px' }}>
+              MergeAndEdit
             </Link>
           </div>
-          <div className="flex items-center space-x-4">
-            <Link to="/dashboard" className="text-gray-700 hover:text-indigo-600">Dashboard</Link>
-            <Link to="/projects" className="text-gray-700 hover:text-indigo-600">Projects</Link>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <Link to="/dashboard" style={{ textDecoration: 'none', color: '#4a5568' }}>Dashboard</Link>
+            <button 
+              onClick={handleProjects}
+              style={{
+                backgroundColor: 'white',
+                color: '#4a5568',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                border: 'none',
+                cursor: 'pointer',
+                marginRight: '8px'
+              }}
+            >
+              Projects
+            </button>
             <button 
               onClick={handleSignIn}
-              className="bg-indigo-600 text-white px-4 py-2 rounded-md"
+              style={{
+                backgroundColor: '#4f46e5',
+                color: 'white',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                border: 'none',
+                cursor: 'pointer'
+              }}
             >
               Sign In
             </button>
