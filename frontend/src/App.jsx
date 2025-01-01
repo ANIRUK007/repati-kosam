@@ -9,6 +9,7 @@ import NotFound from './components/NotFound';
 import SignIn from './components/SignIn';
 import SignUpPage from './components/signup';
 import ProjectsPage from './components/ProjectsPage'; 
+import EditorDraftReview from './components/EditorDraftReview';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="/" element={<WelcomePage />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/editor/:projectId" element={<VideoEditor />} />
+          <Route path="/editor/:projectId/review" element={<EditorDraftReview />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/editor/:projectId" element={<VideoEditor />} />
