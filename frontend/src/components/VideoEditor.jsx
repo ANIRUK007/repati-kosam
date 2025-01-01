@@ -195,17 +195,16 @@ const VideoEditor = () => {
             boxShadow: '0 4px 10px rgba(0, 0, 0, 0.25)',
           }}
         >
-          <h3 style={{ marginBottom: '1rem', color: '#94a3b8' }}>Timeline</h3>
+          <h3 style={{ marginBottom: '0.3rem', color: '#94a3b8' }}>Timeline</h3>
           <div
             style={{
-              height: '80px',
+              height: '100px',
               backgroundColor: '#2d3748',
               borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
-              padding: '0.5rem',
+              padding: '0.3rem',
               position: 'relative',
-              overflowX: 'scroll',
             }}
           >
             {timeline.map((clip) => (
