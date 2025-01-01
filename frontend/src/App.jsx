@@ -10,6 +10,8 @@ import SignIn from './components/SignIn';
 import SignUpPage from './components/signup';
 import ProjectsPage from './components/ProjectsPage'; 
 import EditorDraftReview from './components/EditorDraftReview';
+import ModDashboard from "./components/ModDashboard";
+import ModeratorView from './components/ModeratorView';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/editor/:projectId" element={<VideoEditor />} />
+          <Route path="/mod-dashboard" element={<ModDashboard />} />
+          <Route path="/moderator" element={<ModeratorView />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

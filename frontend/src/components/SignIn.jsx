@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -9,11 +9,19 @@ const SignIn = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Dummy credentials
-  const dummyUser = {
-    email: 'test@example.com',
-    password: 'test123'
-  };
+  // Dummy credentials with roles
+  const dummyUsers = [
+    {
+      email: 'editor@example.com',
+      password: 'editor123',
+      role: 'editor' // Redirects to Dashboard
+    },
+    {
+      email: 'moderator@example.com',
+      password: 'moderator123',
+      role: 'moderator' // Redirects to ModDashboard
+    }
+  ];
 
   const handleChange = (e) => {
     setFormData({
@@ -25,10 +33,19 @@ const SignIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Check credentials
-    if (formData.email === dummyUser.email && formData.password === dummyUser.password) {
-      navigate('/dashboard');
+
+    // Find user by email and password
+    const user = dummyUsers.find(
+      (u) => u.email === formData.email && u.password === formData.password
+    );
+
+    if (user) {
+      // Navigate based on the user's role
+      if (user.role === 'editor') {
+        navigate('/dashboard'); // Redirect to editor dashboard
+      } else if (user.role === 'moderator') {
+        navigate('/mod-dashboard'); // Redirect to moderator dashboard
+      }
     } else {
       setError('Invalid email or password');
     }
@@ -91,14 +108,6 @@ const SignIn = () => {
       fontSize: '14px',
       textAlign: 'center',
       marginBottom: '16px'
-    },
-    dummyCredentials: {
-      marginTop: '16px',
-      padding: '12px',
-      backgroundColor: '#f3f4f6',
-      borderRadius: '4px',
-      fontSize: '14px',
-      color: '#374151'
     }
   };
 

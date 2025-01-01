@@ -30,7 +30,7 @@ const Sidebar = () => {
           color: 'white',
           border: 'none',
           borderRadius: '4px',
-          padding: '0.5rem',
+          padding: '0.3rem',
           cursor: 'pointer',
           marginBottom: '1rem',
           alignSelf: isCollapsed ? 'center' : 'flex-end',
